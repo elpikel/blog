@@ -304,3 +304,61 @@ class Solution {
     }
 }
 ```
+
+7. [Heaps: Find the Running Median](https://www.hackerrank.com/challenges/ctci-find-the-running-median/problem)
+
+```csharp
+class Mediana
+{
+   readonly SortedSet<int> _lowers = new SortedSet<int>();
+   readonly SortedSet<int> _highers = new SortedSet<int>();
+
+   public decimal Calculate(int a)
+   {
+       Add(a);
+       Rebalance();
+       return GetMediana();
+   }
+
+   private decimal GetMediana()
+   {
+       if (_lowers.Count == _highers.Count)
+       {
+           return (_lowers.Max + _highers.Min) / 2m;
+       }
+
+       if (_lowers.Count > _highers.Count)
+       {
+           return _lowers.Max;
+       }
+
+       return _highers.Min;
+   }
+
+   private void Rebalance()
+   {
+       if (_lowers.Count > _highers.Count + 1)
+       {
+           _highers.Add(_lowers.Max);
+           _lowers.Remove(_lowers.Max);
+       }
+       else if (_highers.Count > _lowers.Count + 1)
+       {
+           _lowers.Add(_highers.Min);
+           _highers.Remove(_highers.Min);
+       }
+   }
+
+   private void Add(int a)
+   {
+       if (_lowers.Count == 0 || _lowers.Min > a)
+       {
+           _lowers.Add(a);
+       }
+       else
+       {
+           _highers.Add(a);
+       }
+   }
+}
+```
