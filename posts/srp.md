@@ -127,15 +127,17 @@ And now we can use it in in our ProvisioningService which is now responsible onl
     public class ProvisioningService : IProvisioningService
     {
         private readonly IWebApiClient _webApiClient;
+        private readonly string _updateEndpointUrl;
 
-        public ProvisioningService(IWebApiClient webApiClient)
+        public ProvisioningService(IWebApiClient webApiClient, string updateEndpointUrl)
         {
             _webApiClient = webApiClient;
+            _updateEndpointUrl = updateEndpointUrl;
         }
 
         public async Task UpdateProvisionStepAsync(StepProcessedMessage message)
         {
-            var resource = $"api/teams/{message.TeamName}/services/{message.ServiceCode}/provision-steps";
+            var resource = string.Format(_updateEndpointUrl, message.TeamName, message.ServiceCode);
             var response = await _webApiClient.PutAsync(resource, message.ProvisionStep);
 
             if (!response.IsSuccessStatusCode)
@@ -145,8 +147,7 @@ And now we can use it in in our ProvisioningService which is now responsible onl
         }
     }
 ```
-
-Now ProvisioningService looks perfect but we can improve WebApiClient a little bit more. We should get rid of comments and replace them with methods so code would be self explanatory:
+As you can see we also removed provisioning step url to field and its value is set in constructor so in that way we can inject it (probably using some configuration file). Now ProvisioningService looks almost perfect but we can improve WebApiClient a little bit more. We should get rid of comments and replace them with methods so code would be self explanatory:
 
 ```csharp
     public class WebApiClient : IWebApiClient
