@@ -198,6 +198,7 @@ spec:
 ```
 
 Last step is to define release build which consists of following steps:
+0. Create Kubernetes service - you will need your: \.kube\config
 1. Deploy to Kubernetes - apply command that uses ```deployment.yaml``` file.
 2. Deploy to Kubernetes - apply command that uses ```service.yaml``` file.
 3. Deploy to Kubernetes - set command with following arguments: ```image deployment/sampleapi sampleapi=[url to azure registry]/sampleapi:$(Build.BuildId)```
