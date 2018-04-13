@@ -69,61 +69,19 @@ public class BaseClassInfo : IBaseClassInfo
         this.classInheritingDictionary = classInheritingDictionary;
     }
 
-    public string BaseClassName
-    {
-        get
-        {
-            return classInheritingDictionary.First().Value.ReferenceOfCsharpClassModel.Name;
-        }
-    }
+    public string BaseClassName => classInheritingDictionary.First().Value.ReferenceOfCsharpClassModel.Name;
 
-    public CsharpClassModel BaseClass
-    {
-        get
-        {
-            return classInheritingDictionary.First().Value.ReferenceOfCsharpClassModel;
-        }
-    }
+    public CsharpClassModel BaseClass => classInheritingDictionary.First().Value.ReferenceOfCsharpClassModel;
 
-    public IDictionary<string, IClassMember> BaseProperties
-    {
-        get
-        {
-            return classInheritingDictionary.First().Value.ReferenceOfCsharpClassModel.PropertiesList;
-        }
-    }
+    public IDictionary<string, IClassMember> BaseProperties => classInheritingDictionary.First().Value.ReferenceOfCsharpClassModel.PropertiesList;
 
-    public Dictionary<string, CsharpFunction> BasePublicFunctions
-    {
-        get
-        {
-            return classInheritingDictionary.First().Value.ReferenceOfCsharpClassModel.PublicFunctionsList;
-        }
-    }
+    public Dictionary<string, CsharpFunction> BasePublicFunctions => classInheritingDictionary.First().Value.ReferenceOfCsharpClassModel.PublicFunctionsList;
 
-    public Dictionary<string, CsharpFunction> BasePublicStaticFunctions
-    {
-        get
-        {
-            return BasePublicFunctions.Where(f => f.Value.IsStatic).ToDictionary(x => x.Key, x => x.Value);
-        }
-    }
+    public Dictionary<string, CsharpFunction> BasePublicStaticFunctions => BasePublicFunctions.Where(f => f.Value.IsStatic).ToDictionary(x => x.Key, x => x.Value);
 
-    public string TestClassName
-    {
-        get
-        {
-            return $"{className}AbstractBase";
-        }
-    }
+    public string TestClassName => $"{className}AbstractBase";
 
-    public string BaseClassDeclaredObjectName
-    {
-        get
-        {
-            return BaseClass.ClassDeclaredObjectName;
-        }
-    }
+    public string BaseClassDeclaredObjectName =>  BaseClass.ClassDeclaredObjectName;
 }
 ```
 
@@ -137,55 +95,19 @@ public class NullBaseClassInfo : IBaseClassInfo
         TestClassName = className;
     }
 
-    public string BaseClassName
-    {
-        get
-        {
-            return string.Empty;
-        }
-    }
+    public string BaseClassName => string.Empty;
 
-    public CsharpClassModel BaseClass
-    {
-        get
-        {
-            return null;
-        }
-    }
+    public CsharpClassModel BaseClass => null;
 
-    public IDictionary<string, IClassMember> BaseProperties
-    {
-        get
-        {
-            return new Dictionary<string, IClassMember>();
-        }
-    }
+    public IDictionary<string, IClassMember> BaseProperties => new Dictionary<string, IClassMember>();
 
-    public Dictionary<string, CsharpFunction> BasePublicFunctions
-    {
-        get
-        {
-            return new Dictionary<string, CsharpFunction>();
-        }
-    }
+    public Dictionary<string, CsharpFunction> BasePublicFunctions => new Dictionary<string, CsharpFunction>();
 
-    public Dictionary<string, CsharpFunction> BasePublicStaticFunctions
-    {
-        get
-        {
-            return new Dictionary<string, CsharpFunction>();
-        }
-    }
+    public Dictionary<string, CsharpFunction> BasePublicStaticFunctions => new Dictionary<string, CsharpFunction>();
 
     public string TestClassName { get; }
 
-    public string BaseClassDeclaredObjectName
-    {
-        get
-        {
-            return string.Empty;
-        }
-    }
+    public string BaseClassDeclaredObjectName => string.Empty;
 }
 ```
 
