@@ -1,5 +1,6 @@
 # Personal blog
 
+* ##### [How to read class diagrams][posts/class_diagrams.md]
 * ##### [Null Object Pattern](posts/null_object.md)
 * ##### [Kubernetes and Docker on VSTS](posts/k_and_d_vsts.md)
 * ##### [Kubernetes and Docker on Azure](posts/k_and_d_azure.md)
