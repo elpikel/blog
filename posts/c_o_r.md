@@ -8,7 +8,7 @@ Based on this description this is what we have been looking for. I decided to pu
 
 ![chain of responsibility diagram](../images/c_o_r.png)
 
-Particular interesting can be abstract class and inherited class:
+Particularly interesting can be abstract class and inherited class:
 
 ```csharp
     public abstract class ChainnedCommand : IChainedCommand
