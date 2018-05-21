@@ -1,5 +1,6 @@
 # Personal blog
 
+* ##### [How to revert file to given commit in git](posts/git_one_file_revert.md)
 * ##### [How to revert migration in Entity Framework Core](posts/migrations_revert.md)
 * ##### [Chain of responsibility](posts/c_o_r.md)
 * ##### [How to read class diagrams](posts/class_diagrams.md)
