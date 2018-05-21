@@ -1,6 +1,6 @@
 # How to revert file to given commit in git
 
-If you want to revert one file to particulat commit then it would be good to have a list of commit that touched that file. To dod that please use following command:
+If you want to revert one file to particulat commits then it would be good to have a list of commit that touched that file. To do that please use following command:
 
 ```
 git log -p -- file_name
