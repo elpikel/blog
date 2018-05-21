@@ -1,5 +1,6 @@
 # Personal blog
 
+* ##### [How to revert migration in Entity Framework Core](posts/migrations_revert.md)
 * ##### [Chain of responsibility](posts/c_o_r.md)
 * ##### [How to read class diagrams](posts/class_diagrams.md)
 * ##### [Null Object Pattern](posts/null_object.md)
