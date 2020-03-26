@@ -1,5 +1,6 @@
 # Personal blog
 
+* ##### [How to exercise sut in test setup](posts/test_setup.md)
 * ##### [How to revert file to given commit in git](posts/git_one_file_revert.md)
 * ##### [How to revert migration in Entity Framework Core](posts/migrations_revert.md)
 * ##### [Chain of responsibility](posts/c_o_r.md)
